@@ -1,0 +1,20 @@
+# node modules
+node_modules/
+
+# logs e arquivos temporários
+logs/
+*.log
+*.tmp
+
+# arquivos de ambiente
+.env
+.env.*
+.claudesettings.json
+settings.json
+
+# sistema
+.DS_Store
+Thumbs.db
+
+# uploads e cache local
+storage/
