@@ -1,0 +1,47 @@
+{
+  "name": "agroai-backend",
+  "version": "1.0.0",
+  "description": "Backend para AgroIA - Sistema Inteligente de Monitoramento Agrícola via WhatsApp e Análise de Satélite",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "jest",
+    "db:migrate": "node scripts/migrate.js run",
+    "db:migrate:status": "node scripts/migrate.js status",
+    "db:migrate:create": "node scripts/migrate.js create",
+    "db:setup": "npm run db:migrate",
+    "satellite:analyze": "node scripts/analyzeSatellite.js",
+    "satellite:daily": "node -e \"require('./modules/satellite-analysis/cron/dailyAnalysis').runDailySatelliteAnalysis()\"",
+    "setup": "npm install && npm run db:setup"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "pg": "^8.11.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "openai": "^4.0.0",
+    "@anthropic-ai/sdk": "^0.24.0",
+    "whatsapp-web.js": "^1.22.1",
+    "axios": "^1.5.0",
+    "node-cron": "^3.0.2",
+    "winston": "^3.10.0",
+    "joi": "^17.10.1",
+    "qrcode-terminal": "^0.12.0",
+    "sharp": "^0.32.0",
+    "geotiff": "^2.1.0",
+    "proj4": "^2.9.0",
+    "moment": "^2.29.4",
+    "multer": "^1.4.5-lts.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1",
+    "jest": "^29.6.4"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "author": "AgroIA Team",
+  "license": "MIT",
+  "keywords": ["agriculture", "satellite", "ai", "whatsapp", "ndvi", "monitoring"]
+}

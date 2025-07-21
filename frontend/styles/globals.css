@@ -1,0 +1,154 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Importar fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Estilos base */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Estilos customizados para componentes */
+.leaflet-container {
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+
+/* Customização dos mapas Leaflet */
+.leaflet-popup-content-wrapper {
+  @apply bg-white rounded-lg shadow-lg;
+}
+
+.leaflet-popup-content {
+  @apply p-3 m-0;
+}
+
+/* Estilos para NDVI */
+.ndvi-legend {
+  @apply bg-white bg-opacity-90 p-3 rounded-lg shadow-md;
+}
+
+.ndvi-color-bar {
+  height: 20px;
+  background: linear-gradient(to right, 
+    #0066cc 0%,    /* Água */
+    #8b4513 20%,   /* Solo nu */
+    #ffd700 40%,   /* Vegetação esparsa */
+    #90ee90 70%,   /* Vegetação moderada */
+    #006400 100%   /* Vegetação densa */
+  );
+}
+
+/* Animações customizadas */
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.slide-up {
+  animation: slideUp 0.3s ease-out;
+}
+
+/* Estados de loading */
+.loading-spinner {
+  @apply animate-spin rounded-full border-4 border-gray-200 border-t-primary-500;
+}
+
+/* Estilos para alertas */
+.alert-badge-info {
+  @apply bg-blue-100 text-blue-800 border-blue-200;
+}
+
+.alert-badge-low {
+  @apply bg-green-100 text-green-800 border-green-200;
+}
+
+.alert-badge-medium {
+  @apply bg-yellow-100 text-yellow-800 border-yellow-200;
+}
+
+.alert-badge-high {
+  @apply bg-red-100 text-red-800 border-red-200;
+}
+
+/* Scrollbar customizada */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e0 #f7fafc;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  @apply bg-gray-100;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-gray-400 rounded-full;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-500;
+}
+
+/* Responsividade para dispositivos móveis */
+@media (max-width: 768px) {
+  .mobile-hide {
+    display: none;
+  }
+  
+  .mobile-show {
+    display: block;
+  }
+}
+
+@media (min-width: 769px) {
+  .desktop-hide {
+    display: none;
+  }
+  
+  .desktop-show {
+    display: block;
+  }
+}
+
+/* Estados hover e focus melhorados */
+.btn-primary {
+  @apply bg-primary-500 hover:bg-primary-600 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50;
+}
+
+.btn-secondary {
+  @apply bg-gray-500 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50;
+}
+
+.input-field {
+  @apply border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent;
+}
